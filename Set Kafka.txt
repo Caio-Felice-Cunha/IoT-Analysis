@@ -1,0 +1,20 @@
+# Open the 1st command prompt:
+1 - Initialize Zookeepper (Kafka cluster manager):
+	* .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+# Open the 2nd command prompt:
+2 - Initialize Kafka:
+	* .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+# Open the 3rd command prompt:
+3 - Create a topic in Kafk:
+	* .\bin\windows\kafka-topics.bat --create --topic IotAnalysis --bootstrap-server localhost:9092
+
+4 - Describe the topic:
+	* .\bin\windows\kafka-topics.bat --describe --topic IotAnalysis --bootstrap-server localhost:9092
+
+5 - Produce streaming data in Kafka (as a streaming producer):
+	* .\bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic IotAnalysis < ../Simulator_iot/data__sensors.txt
+
+6 - List topic content (as a streaming consumer):
+	* .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic IotAnalysis --from-beginning
